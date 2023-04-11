@@ -161,106 +161,107 @@
                     }
                 }
             }
-        },
-        "components": {
-            "schemas": {
-                "Event": {
-                    "type": "object",
-                    "properties": {
-                        "code": {
-                            "type": "integer",
-                            "required": true
-                        },
-                        "terminal_id": {
-                            "type": "integer",
-                            "required": true
-                        },
-                        "hint": {
-                            "type": "string",
-                            "required": true
-                        }
-                    }
-                },
-                "Statistic": {
-                    "type": "object",
-                    "properties": {
-                        "date": {
-                            "type": "string",
-                            "format": "date-time",
-                            "required": true
-                        },
-                        "meter": {
-                            "type": "string",
-                            "required": true
-                        },
-                        "value": {
-                            "type": "string",
-                            "required": true
-                        },
-                        "game_id": {
-                            "type": "integer",
-                            "required": true
-                        },
-                        "terminal_id": {
-                            "type": "integer",
-                            "required": true
-                        },
-                        "shift_id": {
-                            "type": "integer",
-                            "required": true
-                        }
-                    }
-                },
-                "Terminal": {
-                    "type": "object",
-                    "required": [
-                        "id",
-                        "status"
-                    ],
-                    "properties": {
-                        "id": {
-                            "type": "string",
-                            "description": "Unique ID of terminal"
-                        },
-                        "status": {
-                            "type": "string",
-                            "enum": [
-                                "active",
-                                "inactive"
-                            ]
-                        }
-                    }
-                },
-                "Terminals": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/components/schemas/Terminal"
-                    }
-                },
-                "Error": {
-                    "type": "object",
-                    "required": [
-                        "message"
-                    ],
-                    "properties": {
-                        "message": {
-                            "description": "A human readable error message",
-                            "type": "string"
-                        }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Event": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "required": true
+                    },
+                    "terminal_id": {
+                        "type": "integer",
+                        "required": true
+                    },
+                    "hint": {
+                        "type": "string",
+                        "required": true
                     }
                 }
             },
-            "securitySchemes": {
-                "ApiKey": {
-                    "type": "apiKey",
-                    "in": "header",
-                    "name": "X-Api-Key"
+            "Statistic": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "format": "date-time",
+                        "required": true
+                    },
+                    "meter": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "value": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "game_id": {
+                        "type": "integer",
+                        "required": true
+                    },
+                    "terminal_id": {
+                        "type": "integer",
+                        "required": true
+                    },
+                    "shift_id": {
+                        "type": "integer",
+                        "required": true
+                    }
+                }
+            },
+            "Terminal": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "status"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Unique ID of terminal"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "active",
+                            "inactive"
+                        ]
+                    }
+                }
+            },
+            "Terminals": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Terminal"
+                }
+            },
+            "Error": {
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "properties": {
+                    "message": {
+                        "description": "A human readable error message",
+                        "type": "string"
+                    }
                 }
             }
         },
-        "security": [
-            {
-                "ApiKey": []
+        "securitySchemes": {
+            "ApiKey": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "X-Api-Key"
             }
-        ]
-    }
+        }
+    },
+    "security": [
+        {
+            "ApiKey": []
+        }
+    ]
+}
