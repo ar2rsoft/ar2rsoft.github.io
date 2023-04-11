@@ -94,7 +94,7 @@
                         }
                     },
                     "404": {
-                        "description": "No spacecraft found for the provided `spacecraftId`",
+                        "description": "No terminals found",
                         "content": {
                             "application/json": {
                                 "schema": {
