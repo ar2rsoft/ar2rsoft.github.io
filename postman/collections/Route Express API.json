@@ -52,11 +52,9 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/terminals/list",
-											"host": [
-												"{{baseUrl}}"
-											],
+											"raw": "//terminals/list",
 											"path": [
+												"",
 												"terminals",
 												"list"
 											]
@@ -151,6 +149,56 @@
 				}
 			],
 			"id": "08fe1904-080f-4666-a1f0-22dc46cd54ab"
+		},
+		{
+			"name": "Send signal to terminal that money was collected",
+			"id": "f1646538-95dc-4209-81db-8b36bc76909b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/collectionMoney",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"collectionMoney"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "88c332ae-f086-45e9-852d-60b9deec753e",
+					"name": "Ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/collectionMoney",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"collectionMoney"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": []
+				}
+			]
 		}
 	],
 	"auth": {
@@ -177,7 +225,8 @@
 		{
 			"id": "0d0945b5-11e0-4e76-af02-3d8364815b6f",
 			"key": "baseUrl",
-			"value": "/"
+			"value": "/",
+			"type": "string"
 		}
 	]
 }
