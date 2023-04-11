@@ -135,7 +135,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Return a 200 status to indicate that the statistic data was received successfully"
+                        "description": "Return a 200 status to indicate that the statistic data was received successfully",
                     }
                 }
             }
@@ -143,124 +143,124 @@
         "exceptions": {
             "post": {
                 "requestBody": {
-                    "description": "Collected statistic",
+                    "description": "Collected events",
                     "content": {
                         "application/json": {
                             "schema": {
-                            "type": "object",
-                            "items": {
-                                "$ref": "#/components/schemas/Event"
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Event"
+                                }
                             }
                         }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Return a 200 status to indicate that the events data was received successfully"
-                    }
-                }
-            }
-        }
-    },
-    "components": {
-        "schemas": {
-            "Event": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "integer",
-                        "required": true
                     },
-                    "terminal_id": {
-                        "type": "integer",
-                        "required": true
-                    },
-                    "hint": {
-                        "type": "string",
-                        "required": true
-                    }
-                }
-            },
-            "Statistic": {
-                "type": "object",
-                "properties": {
-                    "date": {
-                        "type": "string",
-                        "format": "date-time",
-                        "required": true
-                    },
-                    "meter": {
-                        "type": "string",
-                        "required": true
-                    },
-                    "value": {
-                        "type": "string",
-                        "required": true
-                    },
-                    "game_id": {
-                        "type": "integer",
-                        "required": true
-                    },
-                    "terminal_id": {
-                        "type": "integer",
-                        "required": true
-                    },
-                    "shift_id": {
-                        "type": "integer",
-                        "required": true
-                    }
-                }
-            },
-            "Terminal": {
-                "type": "object",
-                "required": [
-                    "id",
-                    "status"
-                ],
-                "properties": {
-                    "id": {
-                        "type": "string",
-                        "description": "Unique ID of terminal"
-                    },
-                    "status": {
-                        "type": "string",
-                        "enum": [
-                            "active",
-                            "inactive"
-                        ]
-                    }
-                }
-            },
-            "Terminals": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/components/schemas/Terminal"
-                }
-            },
-            "Error": {
-                "type": "object",
-                "required": [
-                    "message"
-                ],
-                "properties": {
-                    "message": {
-                        "description": "A human readable error message",
-                        "type": "string"
+                    "responses": {
+                        "200": {
+                            "description": "Return a 200 status to indicate that the events data was received successfully"
+                        }
                     }
                 }
             }
         },
-        "securitySchemes": {
-            "ApiKey": {
-                "type": "apiKey",
-                "in": "header",
-                "name": "X-Api-Key"
+        "components": {
+            "schemas": {
+                "Event": {
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "type": "integer",
+                            "required": true
+                        },
+                        "terminal_id": {
+                            "type": "integer",
+                            "required": true
+                        },
+                        "hint": {
+                            "type": "string",
+                            "required": true
+                        }
+                    }
+                },
+                "Statistic": {
+                    "type": "object",
+                    "properties": {
+                        "date": {
+                            "type": "string",
+                            "format": "date-time",
+                            "required": true
+                        },
+                        "meter": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "value": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "game_id": {
+                            "type": "integer",
+                            "required": true
+                        },
+                        "terminal_id": {
+                            "type": "integer",
+                            "required": true
+                        },
+                        "shift_id": {
+                            "type": "integer",
+                            "required": true
+                        }
+                    }
+                },
+                "Terminal": {
+                    "type": "object",
+                    "required": [
+                        "id",
+                        "status"
+                    ],
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "Unique ID of terminal"
+                        },
+                        "status": {
+                            "type": "string",
+                            "enum": [
+                                "active",
+                                "inactive"
+                            ]
+                        }
+                    }
+                },
+                "Terminals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/components/schemas/Terminal"
+                    }
+                },
+                "Error": {
+                    "type": "object",
+                    "required": [
+                        "message"
+                    ],
+                    "properties": {
+                        "message": {
+                            "description": "A human readable error message",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "securitySchemes": {
+                "ApiKey": {
+                    "type": "apiKey",
+                    "in": "header",
+                    "name": "X-Api-Key"
+                }
             }
-        }
-    },
-    "security": [
-        {
-            "ApiKey": []
-        }
-    ]
-}
+        },
+        "security": [
+            {
+                "ApiKey": []
+            }
+        ]
+    }
