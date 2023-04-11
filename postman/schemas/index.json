@@ -135,7 +135,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Return a 200 status to indicate that the statistic data was received successfully",
+                        "description": "Return a 200 status to indicate that the statistic data was received successfully"
                     }
                 }
             }
