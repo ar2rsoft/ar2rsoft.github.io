@@ -32,20 +32,7 @@
                 "summary": "Get current status of terminals, statistics and exception events (latest sent etc)",
                 "responses": {
                     "200": {
-                        "description": "Ok",
-                        "content": {
-                            "application/json": {
-                                "type": "object",
-                                "items": {
-                                    "terminals": {
-                                        "type": "array",
-                                        "schema": {
-                                            "$ref": "#/components/schemas/Terminals"
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        "description": "Ok"
                     }
                 }
             }
