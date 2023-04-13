@@ -178,7 +178,27 @@
                     },
                     "hint": {
                         "type": "string",
-                        "required": true
+                        "required": true,
+                        "enum": [
+                            'CardCageWasOpened',
+                            'CardCageWasClosed',
+                            'ACPowerWasApplied',
+                            'ACPowerWasLost',
+                            'LowBackupBatteryDetected',
+                            'OperatorChangedOptions',
+                            'CashOutTicketHasBeenPrinted',
+                            'HandpayHasBeenValidated',
+                            'ValidationIDNotConfigured',
+                            'HandpayIsPending',
+                            'HandpayWasReset',
+                            'PrinterPaperOutError',
+                            'CashOutButtonPressed',
+                            'TicketHasBeenInserted',
+                            'TicketTransferCompleted',
+                            'ExceptionBufferOverflow',
+                            'MachineSoftMetersResetToZero',
+                            'PowerOffCardCageAccess'
+                        ]
                     }
                 }
             },
