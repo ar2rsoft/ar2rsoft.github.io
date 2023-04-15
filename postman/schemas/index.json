@@ -118,6 +118,28 @@
         }
     },
     "webhooks": {
+        "cashout": {
+            "post": {
+                "requestBody": {
+                    "description": "Callback when cash outed",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/CashOut"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return a 200 status to indicate that the statistic data was received successfully"
+                    }
+                }
+            }
+        },
         "statistics": {
             "post": {
                 "requestBody": {
@@ -165,6 +187,19 @@
     },
     "components": {
         "schemas": {
+            "CashOut": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "integer",
+                        "example": 1500
+                    },
+                    "created_at": {
+                        "type": "date-time",
+                        "example": "2022-12-12"
+                    }
+                }
+            },
             "Event": {
                 "type": "object",
                 "properties": {
@@ -212,11 +247,13 @@
                     },
                     "meter": {
                         "type": "string",
-                        "required": true
+                        "required": true,
+                        "example": "TotalCoinIn"
                     },
                     "value": {
                         "type": "string",
-                        "required": true
+                        "required": true,
+                        "example": 1200
                     },
                     "game_id": {
                         "type": "integer",
@@ -261,10 +298,12 @@
                         "type": "string"
                     },
                     "serial": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "ABCD-ABCD-ABCD-ABCD"
                     },
                     "comPort": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "/dev/ttyS0"
                     },
                     "connected": {
                         "type": "boolean"
@@ -273,7 +312,8 @@
                         "type": "boolean"
                     },
                     "archived": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "example": false
                     }
                 }
             },
