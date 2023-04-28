@@ -160,6 +160,29 @@
                         "items": {
                             "$ref": "#/components/schemas/Event"
                         }
+                    },
+                    "shifts": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Shift"
+                        }
+                    }
+                }
+            },
+            "Shift": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": "101"
+                    },
+                    "start": {
+                        "type": "date-time",
+                        "example": "2022-12-11 10:00:00"
+                    },
+                    "end": {
+                        "type": "date-time",
+                        "example": "2022-12-12 12:10:00"
                     }
                 }
             },
