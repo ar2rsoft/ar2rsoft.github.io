@@ -118,17 +118,14 @@
         }
     },
     "webhooks": {
-        "cashout": {
+        "webhook": {
             "post": {
                 "requestBody": {
                     "description": "Callback when cash outed",
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/CashOut"
-                                }
+                                "$ref": "#/components/schemas/Webhook"
                             }
                         }
                     }
@@ -136,50 +133,6 @@
                 "responses": {
                     "200": {
                         "description": "Return a 200 status to indicate that the statistic data was received successfully"
-                    }
-                }
-            }
-        },
-        "statistics": {
-            "post": {
-                "requestBody": {
-                    "description": "Collected statistic",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/Statistic"
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Return a 200 status to indicate that the statistic data was received successfully"
-                    }
-                }
-            }
-        },
-        "exceptions": {
-            "post": {
-                "requestBody": {
-                    "description": "Collected events",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/Event"
-                                }
-                            }
-                        }
-                    },
-                    "responses": {
-                        "200": {
-                            "description": "Return a 200 status to indicate that the events data was received successfully"
-                        }
                     }
                 }
             }
@@ -187,6 +140,29 @@
     },
     "components": {
         "schemas": {
+            "Webhook": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Statistic"
+                        }
+                    },
+                    "terminals": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Terminal"
+                        }
+                    },
+                    "exceptions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Event"
+                        }
+                    }
+                }
+            },
             "CashOut": {
                 "type": "object",
                 "properties": {
